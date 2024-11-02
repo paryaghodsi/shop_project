@@ -130,8 +130,8 @@ def signup():
             return False,'Empty Fields Error!'
         if pas!=cpas:
             return False,'password and confirmation mismatch!'
-        # if not re.match(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$', pas):
-        #     return False,'password Minimum eight chars,at least one letter and one number'
+        if not re.match(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$', pas):
+            return False,'password Minimum eight chars,at least one letter and one number'
         if checkInfo(user):
             return False,'Username Already Exist!!'
         return  True,''
